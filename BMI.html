@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Máy tính BMI</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-900 text-slate-100 flex items-center justify-center p-4">
+  <main class="w-full max-w-xl bg-slate-800/80 backdrop-blur rounded-2xl shadow-2xl border border-slate-700 p-6 sm:p-8">
+    <header class="mb-6 sm:mb-8 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+        Máy tính BMI
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base">
+        Nhập chiều cao và cân nặng của bạn để tính chỉ số khối cơ thể (Body Mass Index).
+      </p>
+    </header>
+
+    <section class="space-y-6">
+      <!-- Form nhập dữ liệu -->
+      <form id="bmi-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Chiều cao -->
+          <div>
+            <label for="height" class="block text-sm font-medium text-slate-200 mb-1">
+              Chiều cao
+            </label>
+            <div class="relative">
+              <input
+                type="number"
+                id="height"
+                min="50"
+                max="250"
+                step="0.1"
+                placeholder="Ví dụ: 170"
+                class="w-full rounded-xl border border-slate-600 bg-slate-900/70 px-3 py-2.5 text-sm sm:text-base text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400"
+                required
+              />
+              <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 text-xs sm:text-sm">cm</span>
+            </div>
+            <p class="mt-1 text-[11px] sm:text-xs text-slate-400">
+              Nhập chiều cao tính bằng centimet (cm).
+            </p>
+          </div>
+
+          <!-- Cân nặng -->
+          <div>
+            <label for="weight" class="block text-sm font-medium text-slate-200 mb-1">
+              Cân nặng
+            </label>
+            <div class="relative">
+              <input
+                type="number"
+                id="weight"
+                min="10"
+                max="300"
+                step="0.1"
+                placeholder="Ví dụ: 60"
+                class="w-full rounded-xl border border-slate-600 bg-slate-900/70 px-3 py-2.5 text-sm sm:text-base text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400"
+                required
+              />
+              <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 text-xs sm:text-sm">kg</span>
+            </div>
+            <p class="mt-1 text-[11px] sm:text-xs text-slate-400">
+              Nhập cân nặng tính bằng kilogram (kg).
+            </p>
+          </div>
+        </div>
+
+        <!-- Nút tính & reset -->
+        <div class="flex flex-col sm:flex-row gap-3 mt-2">
+          <button
+            type="submit"
+            class="flex-1 inline-flex items-center justify-center rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-900 font-semibold py-2.5 text-sm sm:text-base shadow-lg shadow-emerald-500/30 transition-colors"
+          >
+            Tính BMI
+          </button>
+          <button
+            type="button"
+            id="reset-btn"
+            class="sm:w-32 inline-flex items-center justify-center rounded-xl border border-slate-600 text-slate-200 hover:bg-slate-700/70 active:bg-slate-800 text-sm sm:text-base py-2.5 transition-colors"
+          >
+            Làm mới
+          </button>
+        </div>
+
+        <!-- Thông báo lỗi -->
+        <p id="error-msg" class="hidden text-sm text-rose-400 mt-1"></p>
+      </form>
+
+      <!-- Kết quả -->
+      <section id="result-section" class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-stretch">
+        <!-- Thông tin chính -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/60 p-4 sm:p-5 flex flex-col justify-between">
+          <div>
+            <h2 class="text-base sm:text-lg font-semibold text-slate-100 mb-2 flex items-center gap-2">
+              Kết quả của bạn
+              <span id="bmi-status-pill" class="hidden text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full bg-slate-700 text-slate-200"></span>
+            </h2>
+
+            <div class="flex items-end gap-4 mb-4">
+              <p id="bmi-value" class="text-3xl sm:text-4xl font-bold text-slate-400">
+                --
+              </p>
+              <p class="text-xs sm:text-sm text-slate-400 mb-1">
+                kg/m²
+              </p>
+            </div>
+
+            <p id="bmi-description" class="text-sm sm:text-base text-slate-300 min-h-[2.5rem]">
+              Hãy nhập chiều cao và cân nặng rồi nhấn "Tính BMI".
+            </p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-700 text-[11px] sm:text-xs text-slate-400">
+            Công thức: BMI = cân nặng (kg) / [chiều cao (m)]²
+          </div>
+        </div>
+
+        <!-- Thang đo BMI -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/60 p-4 sm:p-5 flex flex-col">
+          <h3 class="text-sm sm:text-base font-semibold text-slate-100 mb-3">
+            Bảng phân loại BMI (người trưởng thành)
+          </h3>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1">
+                <span class="inline-block w-2 h-2 rounded-full bg-sky-400"></span>
+                Gầy
+              </span>
+              <span class="text-slate-300">BMI &lt; 18.5</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+                Bình thường
+              </span>
+              <span class="text-slate-300">18.5 – 22.9</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1">
+                <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+                Thừa cân
+              </span>
+              <span class="text-slate-300">23.0 – 24.9</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1">
+                <span class="inline-block w-2 h-2 rounded-full bg-orange-500"></span>
+                Béo phì độ I
+              </span>
+              <span class="text-slate-300">25.0 – 29.9</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1">
+                <span class="inline-block w-2 h-2 rounded-full bg-rose-500"></span>
+                Béo phì độ II
+              </span>
+              <span class="text-slate-300">BMI ≥ 30.0</span>
+            </div>
+          </div>
+
+          <!-- Thanh thang đo trực quan -->
+          <div class="mt-4">
+            <div class="flex justify-between text-[10px] sm:text-[11px] text-slate-400 mb-1">
+              <span>Thấp</span>
+              <span>Cao</span>
+            </div>
+            <div class="relative h-3 rounded-full overflow-hidden bg-slate-800 border border-slate-700">
+              <div class="absolute inset-y-0 left-0 bg-sky-500" style="width: 18.5%"></div>
+              <div class="absolute inset-y-0 left-[18.5%] bg-emerald-500" style="width: 22.9%"></div>
+              <div class="absolute inset-y-0 left-[41.4%] bg-amber-400" style="width: 24.9%"></div>
+              <div class="absolute inset-y-0 left-[66.3%] bg-orange-500" style="width: 29.9%"></div>
+              <div class="absolute inset-y-0 left-[96.2%] bg-rose-500" style="width: 3.8%"></div>
+              <div id="bmi-indicator" class="absolute -top-1.5 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-cyan-300 drop-shadow-[0_0_6px_rgba(34,211,238,0.8)] opacity-0 transition-all duration-300"></div>
+            </div>
+            <p class="mt-1 text-[11px] sm:text-xs text-slate-400">
+              Mũi tên thể hiện vị trí BMI của bạn trên thang đo (0–40).
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('bmi-form');
+    const heightInput = document.getElementById('height');
+    const weightInput = document.getElementById('weight');
+    const errorMsg = document.getElementById('error-msg');
+
+    const bmiValueEl = document.getElementById('bmi-value');
+    const bmiDescEl = document.getElementById('bmi-description');
+    const bmiStatusPill = document.getElementById('bmi-status-pill');
+    const bmiIndicator = document.getElementById('bmi-indicator');
+    const resetBtn = document.getElementById('reset-btn');
+
+    function classifyBMI(bmi) {
+      if (bmi < 18.5) {
+        return {
+          label: 'Gầy',
+          color: 'bg-sky-500/20 text-sky-300 border border-sky-500/60',
+          desc: 'Chỉ số BMI cho thấy bạn đang thiếu cân. Hãy cân nhắc tăng cường dinh dưỡng và tập luyện hợp lý.',
+        };
+      }
+      if (bmi < 23) {
+        return {
+          label: 'Bình thường',
+          color: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/60',
+          desc: 'Chúc mừng! BMI của bạn nằm trong khoảng bình thường. Hãy duy trì lối sống lành mạnh.',
+        };
+      }
+      if (bmi < 25) {
+        return {
+          label: 'Thừa cân',
+          color: 'bg-amber-500/20 text-amber-300 border border-amber-500/60',
+          desc: 'Bạn đang trong ngưỡng thừa cân. Nên theo dõi chế độ ăn uống và tăng cường vận động.',
+        };
+      }
+      if (bmi < 30) {
+        return {
+          label: 'Béo phì độ I',
+          color: 'bg-orange-500/20 text-orange-300 border border-orange-500/70',
+          desc: 'BMI cho thấy bạn thuộc nhóm béo phì độ I. Nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.',
+        };
+      }
+      return {
+        label: 'Béo phì độ II',
+        color: 'bg-rose-500/20 text-rose-300 border border-rose-500/70',
+        desc: 'BMI ở mức béo phì độ II. Bạn nên đi khám và xây dựng kế hoạch điều chỉnh cân nặng phù hợp.',
+      };
+    }
+
+    function updateIndicator(bmi) {
+      const minBMI = 0;
+      const maxBMI = 40;
+      const clamped = Math.max(minBMI, Math.min(maxBMI, bmi));
+      const percent = (clamped / maxBMI) * 100;
+      bmiIndicator.style.left = `calc(${percent}% - 6px)`;
+      bmiIndicator.style.opacity = '1';
+    }
+
+    function clearIndicator() {
+      bmiIndicator.style.opacity = '0';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const height = parseFloat(heightInput.value);
+      const weight = parseFloat(weightInput.value);
+
+      errorMsg.textContent = '';
+      errorMsg.classList.add('hidden');
+
+      if (isNaN(height) || isNaN(weight)) {
+        errorMsg.textContent = 'Vui lòng nhập đầy đủ chiều cao và cân nặng.';
+        errorMsg.classList.remove('hidden');
+        return;
+      }
+
+      if (height <= 0 || weight <= 0) {
+        errorMsg.textContent = 'Chiều cao và cân nặng phải lớn hơn 0.';
+        errorMsg.classList.remove('hidden');
+        return;
+      }
+
+      if (height < 80 || height > 250 || weight < 20 || weight > 300) {
+        errorMsg.textContent = 'Giá trị có vẻ không thực tế. Vui lòng kiểm tra lại chiều cao/cân nặng.';
+        errorMsg.classList.remove('hidden');
+        return;
+      }
+
+      const heightInMeters = height / 100;
+      const bmi = weight / (heightInMeters * heightInMeters);
+      const bmiRounded = Math.round(bmi * 10) / 10;
+
+      bmiValueEl.textContent = bmiRounded.toFixed(1);
+
+      const classification = classifyBMI(bmiRounded);
+      bmiDescEl.textContent = classification.desc;
+
+      bmiStatusPill.textContent = classification.label;
+      bmiStatusPill.className = `inline-flex items-center justify-center text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full ml-1 ${classification.color}`;
+
+      updateIndicator(bmiRounded);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      heightInput.value = '';
+      weightInput.value = '';
+      bmiValueEl.textContent = '--';
+      bmiDescEl.textContent = 'Hãy nhập chiều cao và cân nặng rồi nhấn "Tính BMI".';
+      bmiStatusPill.textContent = '';
+      bmiStatusPill.className = 'hidden text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-full bg-slate-700 text-slate-200';
+      errorMsg.textContent = '';
+      errorMsg.classList.add('hidden');
+      clearIndicator();
+    });
+  </script>
+</body>
+</html>
