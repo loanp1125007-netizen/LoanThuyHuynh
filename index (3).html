@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ms. Loan Thuy Huynh - Personal Academic Website</title>
+  <meta name="description" content="Trang web cá nhân chuyên nghiệp của Ms. Loan Thuy Huynh - hồ sơ học thuật, nghiên cứu, công bố và thông tin liên hệ." />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-60">
+      <div class="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-20 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl"></div>
+    </div>
+
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-20">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#top" class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500 text-slate-950 font-semibold text-lg">
+            LH
+          </div>
+          <div class="leading-tight">
+            <p class="text-sm font-semibold tracking-tight">Ms. Loan Thuy Huynh</p>
+            <p class="text-[11px] text-slate-400">Academic Profile</p>
+          </div>
+        </a>
+        <nav class="hidden gap-6 text-sm text-slate-200 sm:flex">
+          <a href="#about" class="hover:text-emerald-400">Giới thiệu</a>
+          <a href="#research" class="hover:text-emerald-400">Nghiên cứu</a>
+          <a href="#publications" class="hover:text-emerald-400">Công bố</a>
+          <a href="#teaching" class="hover:text-emerald-400">Giảng dạy</a>
+          <a href="#contact" class="hover:text-emerald-400">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+      <!-- Hero -->
+      <section id="about" class="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-center">
+        <div class="space-y-5">
+          <p class="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-300">
+            Academic • Research • Teaching
+          </p>
+          <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            <span class="bg-gradient-to-r from-emerald-300 via-cyan-300 to-sky-300 bg-clip-text text-transparent">Ms. Loan Thuy Huynh</span>
+          </h1>
+          <p class="max-w-2xl text-sm text-slate-300 sm:text-base">
+            Nhà nghiên cứu và giảng viên với mối quan tâm đặc biệt tới <span class="font-medium text-emerald-300">[lĩnh vực nghiên cứu chính]</span>. 
+            Tập trung vào việc kết nối nghiên cứu học thuật với ứng dụng thực tiễn, đồng thời đồng hành cùng sinh viên trong hành trình học tập và phát triển nghề nghiệp.
+          </p>
+          <div class="flex flex-wrap gap-3 text-xs text-slate-300">
+            <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/70 px-3 py-1 border border-slate-700">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Researcher
+            </span>
+            <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/70 px-3 py-1 border border-slate-700">
+              <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+              Lecturer
+            </span>
+            <span class="inline-flex items-center gap-1 rounded-full bg-slate-900/70 px-3 py-1 border border-slate-700">
+              <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+              Academic Collaborator
+            </span>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+              Liên hệ hợp tác
+              <span class="text-lg">→</span>
+            </a>
+            <a href="#publications" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-800/80">
+              Xem công bố
+            </a>
+          </div>
+        </div>
+
+        <aside class="relative flex justify-center">
+          <div class="relative w-full max-w-xs rounded-3xl border border-slate-800 bg-slate-900/80 p-4 shadow-2xl shadow-emerald-500/15">
+            <div class="aspect-[3/4] overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+              <img 
+                src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=iNS8w1kAAAAJ" 
+                alt="Portrait of Ms. Loan Thuy Huynh from Google Scholar" 
+                class="h-full w-full object-cover" 
+                onerror="this.src='https://via.placeholder.com/400x520.png?text=Ms.+Loan+Thuy+Huynh';"
+              />
+            </div>
+            <div class="mt-3 space-y-2 text-xs text-slate-200">
+              <div class="flex items-center justify-between">
+                <p class="font-semibold">Ms. Loan Thuy Huynh</p>
+                <span class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-300 border border-emerald-500/40">Open to collaboration</span>
+              </div>
+              <p class="text-[11px] text-slate-400">
+                Thông tin, ảnh chân dung lấy từ hồ sơ Google Scholar công khai.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-1 text-[11px] text-slate-300">
+                <span class="inline-flex items-center gap-1 rounded-full bg-slate-800 px-2 py-0.5">
+                  Scholar Citations
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-full bg-slate-800 px-2 py-0.5">
+                  Academic Network
+                </span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Research & Areas -->
+      <section id="research" class="grid gap-8 lg:grid-cols-2">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-lg shadow-slate-900/40">
+          <h2 class="text-lg font-semibold text-slate-50">Hướng nghiên cứu chính</h2>
+          <p class="mt-2 text-sm text-slate-300">
+            Tập trung xây dựng và phát triển các chủ đề nghiên cứu xoay quanh:
+          </p>
+          <ul class="mt-4 space-y-3 text-sm text-slate-200">
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span><strong>[Lĩnh vực 1]</strong> – mô tả ngắn gọn về hướng nghiên cứu đầu tiên, nhấn mạnh ý nghĩa khoa học và ứng dụng.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+              <span><strong>[Lĩnh vực 2]</strong> – mô tả ngắn gọn về hướng nghiên cứu thứ hai, liên quan tới cộng đồng/địa phương/doanh nghiệp.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+              <span><strong>[Lĩnh vực 3]</strong> – mô tả ngắn về hướng nghiên cứu liên ngành hoặc mở rộng.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-lg shadow-slate-900/40">
+          <h3 class="text-lg font-semibold text-slate-50">Tóm tắt học thuật</h3>
+          <dl class="mt-4 grid grid-cols-2 gap-4 text-sm">
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <dt class="text-[11px] uppercase tracking-wide text-slate-400">Học vị</dt>
+              <dd class="mt-1 font-semibold text-slate-100">[Học vị cao nhất]</dd>
+              <dd class="text-xs text-slate-400">[Trường/Viện]</dd>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <dt class="text-[11px] uppercase tracking-wide text-slate-400">Nơi công tác</dt>
+              <dd class="mt-1 font-semibold text-slate-100">[Trường/Đơn vị công tác]</dd>
+              <dd class="text-xs text-slate-400">Giảng viên / Nghiên cứu viên</dd>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <dt class="text-[11px] uppercase tracking-wide text-slate-400">Số công bố</dt>
+              <dd class="mt-1 font-semibold text-slate-100">[x]+ bài</dd>
+              <dd class="text-xs text-slate-400">Tạp chí, hội nghị trong & ngoài nước</dd>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <dt class="text-[11px] uppercase tracking-wide text-slate-400">Hợp tác</dt>
+              <dd class="mt-1 font-semibold text-slate-100">Mở</dd>
+              <dd class="text-xs text-slate-400">Dự án nghiên cứu & hướng dẫn</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="space-y-4">
+        <div class="flex items-center justify-between gap-3">
+          <h2 class="text-lg font-semibold text-slate-50">Công bố tiêu biểu</h2>
+          <a 
+            href="https://scholar.google.com/citations?user=iNS8w1kAAAAJ" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-[11px] font-medium text-slate-200 hover:border-emerald-500/60 hover:text-emerald-300"
+          >
+            Xem toàn bộ trên Google Scholar
+          </a>
+        </div>
+        <p class="text-sm text-slate-300">
+          Dưới đây là một số bài báo và công trình nghiên cứu nổi bật (có thể cập nhật thêm theo thời gian):
+        </p>
+
+        <ol class="space-y-3 text-sm text-slate-200">
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+            <p class="font-medium">[Tiêu đề bài báo 1]</p>
+            <p class="mt-1 text-xs text-slate-400">Tác giả: Loan Thuy Huynh, cộng sự • [Tên tạp chí/hội nghị], [Năm].</p>
+            <p class="mt-1 text-xs text-slate-300">Mô tả ngắn 1–2 câu về nội dung và đóng góp chính của công trình.</p>
+          </li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+            <p class="font-medium">[Tiêu đề bài báo 2]</p>
+            <p class="mt-1 text-xs text-slate-400">Tác giả: Loan Thuy Huynh, cộng sự • [Tên tạp chí/hội nghị], [Năm].</p>
+            <p class="mt-1 text-xs text-slate-300">Mô tả ngắn 1–2 câu về nội dung và đóng góp chính của công trình.</p>
+          </li>
+          <li class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+            <p class="font-medium">[Tiêu đề bài báo 3]</p>
+            <p class="mt-1 text-xs text-slate-400">Tác giả: Loan Thuy Huynh, cộng sự • [Tên tạp chí/hội nghị], [Năm].</p>
+            <p class="mt-1 text-xs text-slate-300">Mô tả ngắn 1–2 câu về nội dung và đóng góp chính của công trình.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Teaching & Skills -->
+      <section id="teaching" class="grid gap-8 lg:grid-cols-2">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+          <h2 class="text-lg font-semibold text-slate-50">Giảng dạy</h2>
+          <p class="mt-2 text-sm text-slate-300">
+            Kinh nghiệm giảng dạy các học phần bậc đại học/sau đại học, tập trung vào phương pháp học chủ động và định hướng nghiên cứu.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-200">
+            <li class="flex gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>[Học phần 1] – mô tả ngắn nội dung học phần.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>[Học phần 2] – mô tả ngắn nội dung học phần.</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>[Học phần 3] – mô tả ngắn nội dung học phần.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+          <h2 class="text-lg font-semibold text-slate-50">Kỹ năng & Năng lực</h2>
+          <div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <p class="font-semibold text-slate-100">Nghiên cứu định lượng / định tính</p>
+              <p class="mt-1 text-[11px] text-slate-400">Thiết kế nghiên cứu, thu thập & phân tích dữ liệu.</p>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <p class="font-semibold text-slate-100">Viết học thuật</p>
+              <p class="mt-1 text-[11px] text-slate-400">Viết bài báo quốc tế, báo cáo khoa học, đề cương đề tài.</p>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <p class="font-semibold text-slate-100">Hướng dẫn sinh viên</p>
+              <p class="mt-1 text-[11px] text-slate-400">Khóa luận, luận văn, đề tài nghiên cứu sinh viên.</p>
+            </div>
+            <div class="rounded-xl bg-slate-950/40 p-3 border border-slate-800">
+              <p class="font-semibold text-slate-100">Hợp tác liên ngành</p>
+              <p class="mt-1 text-[11px] text-slate-400">Làm việc với các nhóm nghiên cứu đa lĩnh vực.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-start">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+          <h2 class="text-lg font-semibold text-slate-50">Liên hệ</h2>
+          <p class="mt-2 text-sm text-slate-300">
+            Vui lòng để lại lời nhắn nếu bạn quan tâm tới hợp tác nghiên cứu, giảng dạy, hoặc cần trao đổi học thuật.
+          </p>
+          <form id="contact-form" class="mt-4 space-y-4">
+            <div>
+              <label for="name" class="block text-xs font-medium text-slate-200 mb-1">Họ và tên</label>
+              <input id="name" type="text" required class="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Nhập họ tên của bạn" />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-medium text-slate-200 mb-1">Email</label>
+              <input id="email" type="email" required class="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="subject" class="block text-xs font-medium text-slate-200 mb-1">Chủ đề</label>
+              <input id="subject" type="text" class="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Ví dụ: Hợp tác nghiên cứu" />
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-medium text-slate-200 mb-1">Nội dung</label>
+              <textarea id="message" rows="4" required class="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Lời nhắn của bạn..."></textarea>
+            </div>
+            <p id="form-feedback" class="hidden text-xs"></p>
+            <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+              Gửi lời nhắn
+            </button>
+          </form>
+        </div>
+
+        <aside class="space-y-4 text-sm text-slate-200">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+            <h3 class="text-sm font-semibold text-slate-50">Thông tin liên hệ trực tiếp</h3>
+            <dl class="mt-3 space-y-2 text-xs">
+              <div>
+                <dt class="text-slate-400">Email học thuật</dt>
+                <dd class="font-medium text-emerald-300">[email@university.edu]</dd>
+              </div>
+              <div>
+                <dt class="text-slate-400">Đơn vị công tác</dt>
+                <dd class="font-medium">[Khoa/Bộ môn], [Trường/Đại học]</dd>
+              </div>
+              <div>
+                <dt class="text-slate-400">Địa chỉ</dt>
+                <dd class="font-medium">[Địa chỉ cơ quan, thành phố, quốc gia]</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-xs text-slate-300">
+            <p class="font-semibold text-slate-100">Lưu ý về quyền riêng tư</p>
+            <p class="mt-2">
+              Thông tin bạn gửi qua biểu mẫu liên hệ chỉ được sử dụng để trả lời và trao đổi học thuật, 
+              không chia sẻ cho bên thứ ba.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-900 bg-slate-950/90">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p>© <span id="year"></span> Ms. Loan Thuy Huynh. All rights reserved.</p>
+        <p>Profile data & portrait sourced from public Google Scholar profile.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple contact form handler: open default mail client with pre-filled content
+    const form = document.getElementById('contact-form');
+    const feedbackEl = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'Liên hệ từ trang web cá nhân';
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        feedbackEl.textContent = 'Vui lòng điền đầy đủ Họ tên, Email và Nội dung.';
+        feedbackEl.className = 'mt-1 text-xs text-rose-400';
+        feedbackEl.classList.remove('hidden');
+        return;
+      }
+
+      const mailTo = '[email@university.edu]'; // Thay bằng email thật nếu cần
+      const body = `Xin chào Ms. Loan,\n\nTôi là ${name} (${email}).\n\n${message}\n\nTrân trọng.`;
+      const mailtoLink = `mailto:${encodeURIComponent(mailTo)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoLink;
+
+      feedbackEl.textContent = 'Đang mở ứng dụng email trên thiết bị của bạn để gửi thư...';
+      feedbackEl.className = 'mt-1 text-xs text-emerald-400';
+      feedbackEl.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
